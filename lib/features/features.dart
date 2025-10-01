@@ -1,4 +1,4 @@
-export 'splash/splash.dart';
+export 'onboarding/onboarding.dart';
 export 'auth/auth.dart';
 export 'bottom_nav/bottom_nav.dart';
 export 'home/home.dart';
