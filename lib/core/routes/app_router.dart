@@ -5,12 +5,12 @@ class AppRouter {
   static final router = GoRouter(
     navigatorKey: navigatorKey,
     debugLogDiagnostics: true,
-    initialLocation: '/splash',
+    initialLocation: '/onboarding',
     routes: [
       GoRoute(
-        path: '/splash',
-        name: Routes.splash.name,
-        builder: (context, state) => const SplashScreen(),
+        path: '/onboarding',
+        name: Routes.onboarding.name,
+        builder: (context, state) => const OnboardingScreen(),
       ),
     ],
   );
