@@ -12,6 +12,11 @@ class AppRouter {
         name: Routes.onboarding.name,
         builder: (context, state) => const OnboardingScreen(),
       ),
+      GoRoute(
+        path: '/login',
+        name: Routes.login.name,
+        builder: (context, state) => const LoginScreen(),
+      ),
     ],
   );
 }
