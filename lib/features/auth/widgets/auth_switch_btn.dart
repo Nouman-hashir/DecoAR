@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import '../../../decoar.dart';
 
 class AuthSwitchButton extends StatelessWidget {
   final VoidCallback onRegister;
@@ -13,15 +13,14 @@ class AuthSwitchButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
-      margin: const EdgeInsets.symmetric(horizontal: 40),
+      height: 60,
+      margin: const EdgeInsets.symmetric(horizontal: 50),
       decoration: BoxDecoration(
-        color: const Color(0xFFB59C84), // beige background
+        color: AppColors.bgColor,
         borderRadius: BorderRadius.circular(30),
       ),
       child: Row(
         children: [
-          // Register side
           Expanded(
             child: GestureDetector(
               onTap: onRegister,
@@ -31,11 +30,12 @@ class AuthSwitchButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                 ),
                 alignment: Alignment.center,
-                child: const Text(
+                child: Text(
                   "Register",
-                  style: TextStyle(
-                    color: Colors.white,
+                  style: AppTextStyles.poppins(
+                    color: AppColors.white,
                     fontWeight: FontWeight.bold,
+                    fontSize: 16.sp,
                   ),
                 ),
               ),
@@ -52,11 +52,12 @@ class AuthSwitchButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                 ),
                 alignment: Alignment.center,
-                child: const Text(
+                child: Text(
                   "Sign In",
-                  style: TextStyle(
+                  style: AppTextStyles.poppins(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
+                    fontSize: 17.sp,
                   ),
                 ),
               ),
