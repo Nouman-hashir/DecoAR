@@ -41,16 +41,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                 ),
               ),
+
               Padding(
                 padding: EdgeInsets.only(bottom: 50.h),
-                child: CustomAppButtons.footerBtn(
-                  label: "Get Started",
-                  onTap: () {
+                child: AuthSwitchButton(
+                  onRegister: () {
+                    context.push('/signup');
+                  },
+                  onSignIn: () {
                     context.push('/login');
                   },
-                  color: AppColors.black,
-                  textColor: AppColors.white,
-                  width: 170.w,
                 ),
               ),
             ],
