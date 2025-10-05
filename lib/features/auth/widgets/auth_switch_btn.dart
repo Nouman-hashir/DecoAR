@@ -57,7 +57,7 @@ class AuthSwitchButton extends StatelessWidget {
                   style: AppTextStyles.poppins(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
-                    fontSize: 16.sp,
+                    fontSize: 17.sp,
                   ),
                 ),
               ),
