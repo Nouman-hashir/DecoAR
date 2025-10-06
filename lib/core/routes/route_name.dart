@@ -1,1 +1,1 @@
-enum Routes { onboarding, login, signup }
+enum Routes { onboarding, login, signup, bottomnav }

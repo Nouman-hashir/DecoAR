@@ -58,7 +58,11 @@ class SiugnUpScreen extends StatelessWidget {
                 keyboardType: TextInputType.emailAddress,
               ),
               const SizedBox(height: 20),
-              CustomTextField(hintText: "Password", obscureText: true),
+              CustomTextField(
+                hintText: "Password",
+                obscureText: true,
+                suffixIcon: const Icon(Icons.visibility_off),
+              ),
 
               const SizedBox(height: 20),
               CustomTextField(
