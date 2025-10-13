@@ -67,7 +67,12 @@ class LoginScreen extends StatelessWidget {
 
               const SizedBox(height: 30),
 
-              CustomButton(text: "Sign In", onPressed: () {}),
+              CustomButton(
+                text: "Sign In",
+                onPressed: () {
+                  context.goNamed(Routes.bottomnav.name);
+                },
+              ),
             ],
           ),
         ),

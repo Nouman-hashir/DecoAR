@@ -22,6 +22,11 @@ class AppRouter {
         name: Routes.signup.name,
         builder: (context, state) => const SiugnUpScreen(),
       ),
+      GoRoute(
+        path: '/bottomnav',
+        name: Routes.bottomnav.name,
+        builder: (context, state) => const BottomNavScreen(),
+      ),
     ],
   );
 }
