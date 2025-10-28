@@ -5,15 +5,13 @@ class SaveScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          'Save Screen',
-          style: AppTextStyles.poppins(
-            fontSize: 24.sp,
-            fontWeight: FontWeight.bold,
-            color: AppColors.black,
-          ),
+    return Center(
+      child: Text(
+        'Save Screen',
+        style: AppTextStyles.poppins(
+          fontSize: 24.sp,
+          fontWeight: FontWeight.bold,
+          color: AppColors.black,
         ),
       ),
     );

@@ -50,58 +50,77 @@ class BottomNavScreen extends StatelessWidget {
     return Consumer<BottomNavViewModel>(
       builder: (context, viewModel, child) {
         return Scaffold(
-          bottomNavigationBar: Container(
-            height: 50.h,
-            margin: EdgeInsets.symmetric(horizontal: 40.w, vertical: 20.h),
-            decoration: BoxDecoration(
-              color: AppColors.white,
-              borderRadius: BorderRadius.circular(42),
-              border: Border.all(
-                color: AppColors.black.withOpacity(0.1),
-                width: 1,
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: AppColors.black.withOpacity(0.1),
-                  blurRadius: 1,
-                  offset: Offset(0, -1),
-                ),
-              ],
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: navItems.asMap().entries.map((entry) {
-                int index = entry.key;
-                BottomNavItem item = entry.value;
-                bool isSelected = viewModel.isSelected(index);
-
-                return Expanded(
-                  child: GestureDetector(
-                    onTap: () => viewModel.setSelectedIndex(index),
-                    child: Container(
-                      height: 50.h,
-                      margin: EdgeInsets.symmetric(horizontal: 4.w),
-                      decoration: BoxDecoration(
-                        color: (isSelected && index == 2)
-                            ? AppColors.bgColor
-                            : Colors.transparent,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Center(
-                        child: Image.asset(
-                          isSelected ? item.filledIcon : item.unfilledIcon,
-                          width: 18.w,
-                          height: 18.h,
-                          color: isSelected ? null : AppColors.black,
-                        ),
-                      ),
+          backgroundColor: AppColors.backgrey,
+          body: Stack(
+            children: [
+              // Main content
+              Positioned.fill(
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      bottom: 100.h, // Space for bottom navigation
                     ),
+                    child: _getBody(viewModel.selectedIndex),
                   ),
-                );
-              }).toList(),
-            ),
+                ),
+              ),
+
+              // Bottom Navigation Bar positioned at bottom
+              Positioned(
+                left: 56.w,
+                right: 56.w,
+                bottom: 24.h,
+                child: Container(
+                  height: 50.h,
+                  decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.circular(30.r),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.black.withOpacity(0.1),
+                        blurRadius: 15,
+                        offset: const Offset(0, 5),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: navItems.asMap().entries.map((entry) {
+                      int index = entry.key;
+                      BottomNavItem item = entry.value;
+                      bool isSelected = viewModel.isSelected(index);
+
+                      return Expanded(
+                        child: GestureDetector(
+                          onTap: () => viewModel.setSelectedIndex(index),
+                          child: Container(
+                            height: 50.h,
+                            margin: EdgeInsets.symmetric(horizontal: 3.w),
+                            decoration: BoxDecoration(
+                              color: (isSelected && index == 2)
+                                  ? AppColors.bgColor
+                                  : Colors.transparent,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Center(
+                              child: Image.asset(
+                                isSelected
+                                    ? item.filledIcon
+                                    : item.unfilledIcon,
+                                width: 18.w,
+                                height: 18.h,
+                                // color: isSelected ? null : AppColors.black,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                ),
+              ),
+            ],
           ),
-          body: _getBody(viewModel.selectedIndex),
         );
       },
     );

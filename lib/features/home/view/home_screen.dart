@@ -5,18 +5,18 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const CustomAppBar(),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 20.h),
-            const CategoryRow(),
-            SizedBox(height: 20.h),
-            // Add more content here as needed
-          ],
-        ),
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const CustomAppBar(),
+          SizedBox(height: 20.h),
+          const CategoryRow(),
+          SizedBox(height: 20.h),
+          const SofaOfferCard(),
+          SizedBox(height: 20.h),
+          const ProductsSection(),
+        ],
       ),
     );
   }
