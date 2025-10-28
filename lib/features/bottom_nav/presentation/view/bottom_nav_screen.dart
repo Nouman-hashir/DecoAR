@@ -3,7 +3,8 @@
 import 'package:deco_ar/decoar.dart';
 
 class BottomNavScreen extends StatelessWidget {
-  const BottomNavScreen({super.key});
+  final Color? backgroundColor;
+  const BottomNavScreen({super.key, this.backgroundColor});
 
   Widget _getBody(int selectedIndex) {
     switch (selectedIndex) {
@@ -19,6 +20,23 @@ class BottomNavScreen extends StatelessWidget {
         return const ProfileScreen();
       default:
         return const HomeScreen();
+    }
+  }
+
+  Color _getBackgroundColor(int selectedIndex) {
+    switch (selectedIndex) {
+      case 0:
+        return AppColors.backgrey; // Home screen background
+      case 1:
+        return AppColors.brown; // Trends screen background (brown)
+      case 2:
+        return AppColors.backgrey; // AR screen background
+      case 3:
+        return AppColors.backgrey; // Save screen background
+      case 4:
+        return AppColors.backgrey; // Profile screen background
+      default:
+        return AppColors.backgrey;
     }
   }
 
@@ -50,7 +68,8 @@ class BottomNavScreen extends StatelessWidget {
     return Consumer<BottomNavViewModel>(
       builder: (context, viewModel, child) {
         return Scaffold(
-          backgroundColor: AppColors.backgrey,
+          backgroundColor:
+              backgroundColor ?? _getBackgroundColor(viewModel.selectedIndex),
           body: Stack(
             children: [
               // Main content
