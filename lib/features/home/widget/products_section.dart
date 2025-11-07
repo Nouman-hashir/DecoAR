@@ -5,6 +5,21 @@ class ProductsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final products = [
+      {
+        'imagePath': 'assets/images/sofa1.png',
+        'backgroundColor': AppColors.green,
+      },
+      {
+        'imagePath': 'assets/images/sofa2.png',
+        'backgroundColor': AppColors.brown,
+      },
+      {
+        'imagePath': 'assets/images/sofa3.png',
+        'backgroundColor': AppColors.brown,
+      },
+    ];
+
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
@@ -36,44 +51,89 @@ class ProductsSection extends StatelessWidget {
           ),
           SizedBox(height: 16.h),
 
-          // Products grid
-          Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: SizedBox(
-                      height: 160.h,
-                      child: const ProductItem(
-                        imagePath: 'assets/images/sofa1.png',
-                        backgroundColor: AppColors.green,
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 12.w),
-                  // Second product (beige background)
-                  Expanded(
-                    child: SizedBox(
-                      height: 160.h,
-                      child: const ProductItem(
-                        imagePath: 'assets/images/sofa2.png',
-                        backgroundColor: AppColors.brown,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 12.h),
+          ListView.builder(
+            itemCount: (products.length / 2).ceil(),
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemBuilder: (context, rowIndex) {
+              final startIndex = rowIndex * 2;
+              final endIndex = (startIndex + 2 <= products.length)
+                  ? startIndex + 2
+                  : products.length;
 
-              // Bottom row with one product spanning full width
-              SizedBox(
-                height: 180.h,
-                child: const ProductItem(
-                  imagePath: 'assets/images/sofa3.png',
-                  backgroundColor: AppColors.brown,
+              final rowProducts = products.sublist(startIndex, endIndex);
+
+              if (rowProducts.length == 1) {
+                final product = rowProducts.first;
+                return Padding(
+                  padding: EdgeInsets.only(bottom: 12.h),
+                  child: SizedBox(
+                    height: 180.h,
+                    child: ProductItem(
+                      onTap: () {
+                        context.push(
+                          '/details',
+                          extra: {
+                            'imagePath': product['imagePath'],
+                            'backgroundColor': product['backgroundColor'],
+                          },
+                        );
+                      },
+                      imagePath: product['imagePath'] as String,
+                      backgroundColor: product['backgroundColor'] as Color,
+                    ),
+                  ),
+                );
+              }
+              return Padding(
+                padding: EdgeInsets.only(bottom: 12.h),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: SizedBox(
+                        height: 160.h,
+                        child: ProductItem(
+                          onTap: () {
+                            context.push(
+                              '/details',
+                              extra: {
+                                'imagePath': rowProducts[0]['imagePath'],
+                                'backgroundColor':
+                                    rowProducts[0]['backgroundColor'],
+                              },
+                            );
+                          },
+                          imagePath: rowProducts[0]['imagePath'] as String,
+                          backgroundColor:
+                              rowProducts[0]['backgroundColor'] as Color,
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 12.w),
+                    Expanded(
+                      child: SizedBox(
+                        height: 160.h,
+                        child: ProductItem(
+                          onTap: () {
+                            context.push(
+                              '/details',
+                              extra: {
+                                'imagePath': rowProducts[1]['imagePath'],
+                                'backgroundColor':
+                                    rowProducts[1]['backgroundColor'],
+                              },
+                            );
+                          },
+                          imagePath: rowProducts[1]['imagePath'] as String,
+                          backgroundColor:
+                              rowProducts[1]['backgroundColor'] as Color,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
+              );
+            },
           ),
         ],
       ),
