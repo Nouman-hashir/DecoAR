@@ -6,3 +6,4 @@ export 'trends/trends.dart';
 export 'ar/ar.dart';
 export 'save/save.dart';
 export 'profile/profile.dart';
+export 'details/details.dart';

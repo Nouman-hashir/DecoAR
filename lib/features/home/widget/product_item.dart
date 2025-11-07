@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:deco_ar/decoar.dart';
 
 class ProductItem extends StatelessWidget {
@@ -28,7 +30,11 @@ class ProductItem extends StatelessWidget {
             ),
           ],
         ),
-        child: Image.asset(imagePath, fit: BoxFit.contain),
+        child: Hero(
+          transitionOnUserGestures: true,
+          tag: imagePath,
+          child: Image.asset(imagePath, fit: BoxFit.contain),
+        ),
       ),
     );
   }

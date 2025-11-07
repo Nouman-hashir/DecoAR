@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => BottomNavViewModel()),
         ChangeNotifierProvider(create: (_) => HomeViewModel()),
+        ChangeNotifierProvider(create: (_) => DetailsViewModel()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(360, 690),

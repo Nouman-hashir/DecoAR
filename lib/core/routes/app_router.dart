@@ -27,6 +27,17 @@ class AppRouter {
         name: Routes.bottomnav.name,
         builder: (context, state) => const BottomNavScreen(),
       ),
+      GoRoute(
+        path: '/details',
+        name: Routes.details.name,
+        builder: (context, state) {
+          final data = state.extra as Map<String, dynamic>;
+          return DetailsScreen(
+            imagePath: data['imagePath'] as String,
+            backgroundColor: data['backgroundColor'] as Color,
+          );
+        },
+      ),
     ],
   );
 }
