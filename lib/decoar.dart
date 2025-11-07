@@ -6,3 +6,5 @@ export 'package:go_router/go_router.dart';
 export 'package:provider/provider.dart';
 export 'package:flutter_screenutil/flutter_screenutil.dart';
 export 'package:iconsax/iconsax.dart';
+
+export 'package:model_viewer_plus/model_viewer_plus.dart';
