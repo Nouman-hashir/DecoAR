@@ -14,22 +14,26 @@ class ARScreen extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           Positioned.fill(
-            child: Image.asset('assets/images/ar_bg.png', fit: BoxFit.cover),
+            child: Image.asset('assets/images/ar_bg.jpg', fit: BoxFit.fill),
           ),
           Positioned.fill(
             child: Container(color: Colors.black.withOpacity(0.25)),
           ),
-          Center(
-            child: SizedBox(
-              width: size.width * 0.7,
-              height: size.height * 0.6,
-              child: const ModelViewer(
-                src:
-                    'assets/models/tripo_convert_329a8980-075b-47fc-bdd9-37a65ae81d58.glb',
-                cameraControls: true,
-                autoPlay: true,
-                ar: true,
-                backgroundColor: Colors.transparent,
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: EdgeInsets.only(bottom: size.height * 0.00),
+              child: SizedBox(
+                width: size.width * 0.7,
+                height: size.height * 0.65,
+                child: const ModelViewer(
+                  src:
+                      'assets/models/tripo_pbr_model_360c7081-45ca-42a6-b3b5-d743a9177cd1.glb',
+                  cameraControls: true,
+                  autoPlay: true,
+                  ar: true,
+                  backgroundColor: Colors.transparent,
+                ),
               ),
             ),
           ),
