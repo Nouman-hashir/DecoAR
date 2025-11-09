@@ -3,11 +3,12 @@ import 'package:deco_ar/decoar.dart';
 class DetailsScreen extends StatelessWidget {
   final String imagePath;
   final Color backgroundColor;
-
+  final String modelPath;
   const DetailsScreen({
     super.key,
     required this.imagePath,
     required this.backgroundColor,
+    required this.modelPath,
   });
 
   @override
@@ -33,7 +34,7 @@ class DetailsScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(top: 8.h, left: 4.w),
+                    padding: EdgeInsets.only(top: 32.h, left: 4.w),
                     child: IconButton(
                       onPressed: () => context.pop(),
                       icon: Icon(
@@ -73,7 +74,9 @@ class DetailsScreen extends StatelessWidget {
             ),
             ProductActionSection(
               onAddToCart: () {},
-              onArTap: () {},
+              onArTap: () {
+                context.push('/ar', extra: {'modelPath': modelPath});
+              },
               arBackgroundColor:
                   viewModel.availableColors[viewModel.selectedColorIndex],
             ),

@@ -35,7 +35,16 @@ class AppRouter {
           return DetailsScreen(
             imagePath: data['imagePath'] as String,
             backgroundColor: data['backgroundColor'] as Color,
+            modelPath: data['modelPath'] as String,
           );
+        },
+      ),
+      GoRoute(
+        path: '/ar',
+        name: Routes.ar.name,
+        builder: (context, state) {
+          final data = state.extra as Map<String, dynamic>;
+          return ARScreen(modelPath: data['modelPath'] as String);
         },
       ),
     ],

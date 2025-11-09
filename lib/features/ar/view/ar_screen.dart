@@ -1,7 +1,8 @@
 import 'package:deco_ar/decoar.dart';
 
 class ARScreen extends StatelessWidget {
-  const ARScreen({super.key});
+  final String? modelPath;
+  const ARScreen({super.key, this.modelPath});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +27,9 @@ class ARScreen extends StatelessWidget {
               child: SizedBox(
                 width: size.width * 0.7,
                 height: size.height * 0.65,
-                child: const ModelViewer(
+                child: ModelViewer(
                   src:
+                      modelPath ??
                       'assets/models/tripo_pbr_model_360c7081-45ca-42a6-b3b5-d743a9177cd1.glb',
                   cameraControls: true,
                   autoPlay: true,
