@@ -76,6 +76,8 @@ class ProductsSection extends StatelessWidget {
                           extra: {
                             'imagePath': product['imagePath'],
                             'backgroundColor': product['backgroundColor'],
+                            'modelPath':
+                                'assets/models/tripo_pbr_model_2dce57eb-cc8d-48c1-b3bc-d5f051dfd478.glb',
                           },
                         );
                       },
@@ -100,6 +102,8 @@ class ProductsSection extends StatelessWidget {
                                 'imagePath': rowProducts[0]['imagePath'],
                                 'backgroundColor':
                                     rowProducts[0]['backgroundColor'],
+                                'modelPath':
+                                    'assets/models/tripo_pbr_model_6cf17082-7f32-45dc-9f1c-8400a4c4a8e4.glb',
                               },
                             );
                           },
@@ -121,6 +125,8 @@ class ProductsSection extends StatelessWidget {
                                 'imagePath': rowProducts[1]['imagePath'],
                                 'backgroundColor':
                                     rowProducts[1]['backgroundColor'],
+                                'modelPath':
+                                    'assets/models/tripo_pbr_model_360c7081-45ca-42a6-b3b5-d743a9177cd1.glb',
                               },
                             );
                           },
