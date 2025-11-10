@@ -14,10 +14,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           Icon(Icons.search, color: AppColors.black, size: 25.sp),
           Image.asset('assets/images/icon.png', width: 35.w, height: 35.h),
-          Icon(
-            Icons.shopping_cart_outlined,
-            color: AppColors.black,
-            size: 25.sp,
+          IconButton(
+            onPressed: () {
+              context.push('/cart');
+            },
+            icon: Icon(
+              Icons.shopping_cart_outlined,
+              color: AppColors.black,
+              size: 25.sp,
+            ),
           ),
         ],
       ),
