@@ -47,6 +47,11 @@ class AppRouter {
           return ARScreen(modelPath: data['modelPath'] as String);
         },
       ),
+      GoRoute(
+        path: '/cart',
+        name: Routes.cart.name,
+        builder: (context, state) => const CartScreen(),
+      ),
     ],
   );
 }
