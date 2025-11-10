@@ -11,12 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => BottomNavViewModel()),
-        ChangeNotifierProvider(create: (_) => HomeViewModel()),
-        ChangeNotifierProvider(create: (_) => DetailsViewModel()),
-        ChangeNotifierProvider(create: (_) => CartViewModel()),
-      ],
+      providers: AppProviders.providers,
       child: ScreenUtilInit(
         designSize: const Size(360, 690),
         builder: (context, child) => MaterialApp.router(
