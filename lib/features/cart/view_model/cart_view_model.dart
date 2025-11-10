@@ -51,7 +51,7 @@ class CartViewModel extends ChangeNotifier {
       CartItem(
         id: '1',
         name: 'Yozu Chair',
-        imagePath: '', // No image shown in design
+        imagePath: 'assets/images/sofa1.png',
         price: 'Rp.1.250.000',
         quantity: 1,
         backgroundColor: AppColors.secondaryColor,

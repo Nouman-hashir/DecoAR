@@ -21,7 +21,7 @@ class ProductsSection extends StatelessWidget {
     ];
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      padding: EdgeInsets.symmetric(horizontal: 18.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -55,6 +55,7 @@ class ProductsSection extends StatelessWidget {
             itemCount: (products.length / 2).ceil(),
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
+            padding: EdgeInsets.zero,
             itemBuilder: (context, rowIndex) {
               final startIndex = rowIndex * 2;
               final endIndex = (startIndex + 2 <= products.length)
