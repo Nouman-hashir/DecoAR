@@ -65,7 +65,7 @@ class LoginScreen extends StatelessWidget {
                 suffixIcon: const Icon(Icons.visibility_off),
               ),
 
-              const SizedBox(height: 30),
+              const SizedBox(height: 50),
 
               CustomButton(
                 text: "Sign In",

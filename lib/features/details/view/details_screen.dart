@@ -3,12 +3,12 @@ import 'package:deco_ar/decoar.dart';
 class DetailsScreen extends StatelessWidget {
   final String imagePath;
   final Color backgroundColor;
-  final String modelPath;
+  final String? modelPath;
   const DetailsScreen({
     super.key,
     required this.imagePath,
     required this.backgroundColor,
-    required this.modelPath,
+    this.modelPath,
   });
 
   @override
@@ -73,9 +73,18 @@ class DetailsScreen extends StatelessWidget {
               onColorSelected: viewModel.selectColor,
             ),
             ProductActionSection(
-              onAddToCart: () {},
+              onAddToCart: () {
+                CustomToast.showInfo(context, 'Added to cart');
+              },
               onArTap: () {
-                context.push('/ar', extra: {'modelPath': modelPath});
+                context.push(
+                  '/ar',
+                  extra: {
+                    'modelPath':
+                        modelPath ??
+                        'assets/models/tripo_convert_329a8980-075b-47fc-bdd9-37a65ae81d58.glb',
+                  },
+                );
               },
               arBackgroundColor:
                   viewModel.availableColors[viewModel.selectedColorIndex],
